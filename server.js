@@ -4,9 +4,16 @@ const Stripe = require("stripe")
 
 const app = express()
 app.use(express.json())
+
+// SERVIR A PASTA PUBLIC
 app.use(express.static("public"))
 
 const stripe = Stripe(process.env.STRIPE_SECRET)
+
+// ROTA PRINCIPAL
+app.get("/", (req,res)=>{
+ res.sendFile(__dirname + "/public/index.html")
+})
 
 app.post("/checkout", async (req,res)=>{
  const session = await stripe.checkout.sessions.create({
@@ -20,10 +27,12 @@ app.post("/checkout", async (req,res)=>{
    },
    quantity:1
   }],
-  success_url:"https://seusite/sucesso",
-  cancel_url:"https://seusite"
+  success_url:"https://google.com",
+  cancel_url:"https://google.com"
  })
  res.json({url:session.url})
 })
 
-app.listen(3000)
+// PORTA DO RENDER
+const PORT = process.env.PORT || 3000
+app.listen(PORT, ()=>console.log("Rodando na porta "+PORT))
