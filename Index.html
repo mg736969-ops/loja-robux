@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Loja Robux</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>💎 LOJA ROBUX</h1>
+<p>Entrega automática</p>
+</header>
+
+<section class="grid">
+
+<div class="card">
+<h2>1000 ROBUX</h2>
+<p class="preco">R$ 21,90</p>
+<button onclick="comprar('1000 Robux',21.90)">Comprar</button>
+</div>
+
+<div class="card destaque">
+<h2>2000 ROBUX</h2>
+<p class="preco">R$ 39,90</p>
+<button onclick="comprar('2000 Robux',39.90)">Comprar</button>
+</div>
+
+<div class="card">
+<h2>5000 ROBUX</h2>
+<p class="preco">R$ 89,90</p>
+<button onclick="comprar('5000 Robux',89.90)">Comprar</button>
+</div>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="box">
+<h3 id="prod"></h3>
+<p id="val"></p>
+
+<button onclick="pagarCartao()">Cartão (Stripe)</button>
+
+
+<button class="close" onclick="fechar()">Cancelar</button>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

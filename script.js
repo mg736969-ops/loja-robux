@@ -24,7 +24,6 @@ let j=await r.json()
 location=j.url
 }
 
-async function pagarPix(){
 let r=await fetch("/pix",{
  method:"POST",
  headers:{"Content-Type":"application/json"},
